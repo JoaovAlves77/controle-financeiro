@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card">
+
+<div class="card-body">
+
+<h5>Saldo Atual</h5>
+
+<h2>
+R$ {{ "%.2f"|format(saldo) }}
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<div class="card-body">
+
+<h5>Receitas</h5>
+
+<h2>
+R$ {{ "%.2f"|format(receitas) }}
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card">
+
+<div class="card-body">
+
+<h5>Despesas</h5>
+
+<h2>
+R$ {{ "%.2f"|format(despesas) }}
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3>Movimentações</h3>
+
+<table class="table table-striped">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Descrição</th>
+<th>Valor</th>
+<th>Tipo</th>
+<th>Categoria</th>
+<th>Data</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for mov in movimentacoes %}
+
+<tr>
+
+<td>{{ mov.id }}</td>
+
+<td>{{ mov.descricao }}</td>
+
+<td>R$ {{ mov.valor }}</td>
+
+<td>{{ mov.tipo }}</td>
+
+<td>{{ mov.categoria }}</td>
+
+<td>{{ mov.data }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}
